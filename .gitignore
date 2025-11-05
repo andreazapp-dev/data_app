@@ -1,0 +1,18 @@
+# Cartelle da ignorare
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+.env
+.venv/
+instance/
+uploads/
+*.sqlite3
+
+# File temporanei
+.DS_Store
+*.log
+
+# Config personali
+*.env
