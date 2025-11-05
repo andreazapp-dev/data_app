@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('index') }}">DataApp</a>
+      <div>
+        {% if user %}
+          <span class="me-3">Benvenuto, {{ user }}</span>
+          <a class="btn btn-outline-secondary btn-sm" href="{{ url_for('logout') }}">Logout</a>
+          <a class="btn btn-primary btn-sm ms-2" href="{{ url_for('upload') }}">Analizza CSV</a>
+        {% else %}
+          <a class="btn btn-outline-primary btn-sm me-2" href="{{ url_for('login') }}">Accedi</a>
+          <a class="btn btn-primary btn-sm" href="{{ url_for('register') }}">Registrati</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="card p-4">
+      <h1>Benvenuto in DataApp</h1>
+      <p>Carica un CSV e ottieni statistiche e grafici automatici.</p>
+      {% if user %}
+        <a class="btn btn-success" href="{{ url_for('upload') }}">Analizza un file CSV</a>
+      {% else %}
+        <p>Per caricare file devi <a href="{{ url_for('login') }}">accedere</a>.</p>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>
